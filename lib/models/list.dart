@@ -9,17 +9,17 @@ List<Map<String, dynamic>> bottomBar = [
   {
     'page': 'Saved',
     'icon': FeatherIcons.heart,
-    'body': const HomePage(),
+    //'body': const HomePage(),
   },
   {
     'page': 'Cart',
     'icon': FeatherIcons.shoppingCart,
-    'body': const HomePage(),
+    //'body': const HomePage(),
   },
   {
     'page': 'Settings',
     'icon': FeatherIcons.settings,
-    'body': const HomePage(),
+   // 'body': const HomePage(),
   }
 ];
 
