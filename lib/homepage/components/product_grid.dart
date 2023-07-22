@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductGrid extends StatefulWidget {
@@ -50,6 +49,12 @@ class _ProductGridState extends State<ProductGrid> {
                   image: _products[index].image,
                   price: _products[index].price,
                   title: _products[index].title,
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductPage(),
+                    ),
+                  ),
                 );
               },
             ),

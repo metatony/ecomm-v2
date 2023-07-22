@@ -19,7 +19,8 @@ List<Map<String, dynamic>> bottomBar = [
   {
     'page': 'Settings',
     'icon': FeatherIcons.settings,
-   // 'body': const HomePage(),
+    // 'body': const HomePage(),
   }
 ];
 
+List productSize = ['S', 'M', 'L'];

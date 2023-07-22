@@ -5,32 +5,36 @@ class ProductCard extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    required this.price,
+    required this.price, this.onTap,
   });
 
   final String image, title;
   final double price;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      //width: 161.w,
-      height: 220.h,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(child: Image.network(image,  fit: BoxFit.cover)),
-          SizedBox(height: 8.h),
-          Text(
-            title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
-          ),
-          SizedBox(height: 3.h),
-          Text(
-            price.toString(),
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
-          ),
-        ],
+    return GestureDetector(
+      onTap: onTap,
+      child: SizedBox(
+        //width: 161.w,
+        height: 220.h,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(child: Image.network(image, fit: BoxFit.cover)),
+            SizedBox(height: 8.h),
+            Text(
+              title,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
+            ),
+            SizedBox(height: 3.h),
+            Text(
+              price.toString(),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
+            ),
+          ],
+        ),
       ),
     );
   }

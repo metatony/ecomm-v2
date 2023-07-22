@@ -12,3 +12,13 @@ export 'package:ecommerce_app/widgets/product_card.dart';
 export 'package:ecommerce_app/homepage/components/product_grid.dart';
 export 'package:ecommerce_app/api/api_model.dart';
 export 'package:ecommerce_app/api/fetch.dart';
+export 'package:ecommerce_app/productpage/components/details.dart';
+export 'package:ecommerce_app/productpage/components/product_size.dart';
+export 'package:ecommerce_app/widgets/size_widget.dart';
+export 'package:ecommerce_app/productpage/product_page.dart';
+
+
+
+
+
+
