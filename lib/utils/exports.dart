@@ -10,3 +10,5 @@ export 'package:ecommerce_app/homepage/components/search_area.dart';
 export 'package:ecommerce_app/models/list.dart';
 export 'package:ecommerce_app/widgets/product_card.dart';
 export 'package:ecommerce_app/homepage/components/product_grid.dart';
+export 'package:ecommerce_app/api/api_model.dart';
+export 'package:ecommerce_app/api/fetch.dart';
