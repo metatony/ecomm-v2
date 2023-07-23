@@ -16,6 +16,7 @@ export 'package:ecommerce_app/productpage/components/details.dart';
 export 'package:ecommerce_app/productpage/components/product_size.dart';
 export 'package:ecommerce_app/widgets/size_widget.dart';
 export 'package:ecommerce_app/productpage/product_page.dart';
+export 'package:ecommerce_app/productpage/components/addtocart.dart';
 
 
 
