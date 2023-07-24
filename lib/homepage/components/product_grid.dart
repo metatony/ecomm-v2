@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/productpage/product_page.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductGrid extends StatefulWidget {

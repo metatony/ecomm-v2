@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/productpage/components/addtocart.dart';
+import 'package:ecommerce_app/productpage/components/details.dart';
+import 'package:ecommerce_app/productpage/components/product_size.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductPage extends StatelessWidget {

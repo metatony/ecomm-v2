@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/homepage/homepage.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 List<Map<String, dynamic>> bottomBar = [
