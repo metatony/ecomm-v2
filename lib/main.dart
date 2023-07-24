@@ -2,6 +2,7 @@
 
 import 'package:device_preview/device_preview.dart';
 import 'package:ecommerce_app/auth/signup/signup.dart';
+import 'package:ecommerce_app/wrapper.dart';
 import 'utils/exports.dart';
 
 void main() {
@@ -22,12 +23,10 @@ class MyApp extends StatelessWidget {
       designSize: Size(375, 812),
       useInheritedMediaQuery: true,
       builder: (context, child) {
-        return  MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: GoogleFonts.poppins().fontFamily),
-          home: SignUp() 
-          
-        );
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(fontFamily: GoogleFonts.poppins().fontFamily),
+            home: Wrapper());
       },
     );
   }

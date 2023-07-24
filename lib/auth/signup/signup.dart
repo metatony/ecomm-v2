@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:ecommerce_app/utils/exports.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +25,8 @@ class SignUp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Full name', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Full name',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     TextField(
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
@@ -43,7 +41,8 @@ class SignUp extends StatelessWidget {
                     SizedBox(height: 20.h),
 
                     //!email
-                    Text('Email', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Email',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -58,7 +57,8 @@ class SignUp extends StatelessWidget {
                     SizedBox(height: 20.h),
 
                     //!password
-                    Text('Password', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Password',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     TextField(
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
@@ -82,19 +82,19 @@ class SignUp extends StatelessWidget {
             Button(
               text: google,
               color: white,
-              icon: 'assets/images/logos_google-icon.png',
+              icon: FeatherIcons.aperture,
               textColor: black,
+              iconColor: black,
             ),
             SizedBox(height: 10.h),
             Button(
               text: anonymous,
               color: blue,
-              icon: 'assets/images/logos_google-icon.png',
+              icon: FeatherIcons.aperture,
               textColor: white,
+              iconColor: white,
             ),
-            SizedBox(
-              height: 30.h,
-            ),
+            SizedBox(height: 30.h),
 
             Footer(),
           ],

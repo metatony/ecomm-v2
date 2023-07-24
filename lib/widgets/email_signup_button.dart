@@ -28,30 +28,13 @@ class SignUpButton extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           SizedBox(
             width: double.infinity,
             height: 25.h,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Divider(
-                  thickness: 2 ,
-                  height: 2,
-
-                  
-                  color: Colors.black,
-                ),
-                Text('Or'),
-                Divider(
-                  thickness: 2 ,
-                  height: 2,
-
-                color: Colors.black,
-                ),
-              ],
-            ),
+            child: Center(child: Text('Or')),
           ),
           SizedBox(height: 5.h),
         ],
