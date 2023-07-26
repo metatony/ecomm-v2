@@ -9,17 +9,18 @@ class Button extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.textColor,
-    required this.iconColor,
+    required this.iconColor, this.onTap,
   });
 
   final String text;
   final IconData icon;
   final Color color, iconColor, textColor;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         height: 53.h,
         width: 341.w,

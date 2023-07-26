@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/auth/signup/signup.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class Wrapper extends StatelessWidget {
@@ -16,10 +15,11 @@ class Wrapper extends StatelessWidget {
             children: [
               Column(
                 children: [
+                  //SizedBox(height: 30.h,),
                   Container(
                     margin: EdgeInsets.only(left: 28.w),
                     width: 315.w,
-                    height: 210.h,
+                    height: 235.h,
                     child: Center(
                       child: Text(
                         'Define yourself in your unique way.',
@@ -34,18 +34,18 @@ class Wrapper extends StatelessWidget {
                 ],
               ),
               Positioned(
-                right: 0,
+                right: 0.w,
                 bottom: 80.h,
                 child: SizedBox(
                   child: Image.asset(
                     'assets/images/unsplash_IchPBHFD0pw.png',
-                    height: 600.h,
-                    fit: BoxFit.cover,
+                    height: 680.h,
+                    //fit: BoxFit.cover,
                   ),
                 ),
               ),
               Positioned(
-                bottom: 0,
+                bottom: 0.h,
                 child: Container(
                   color: white,
                   height: 90.h,
@@ -54,11 +54,11 @@ class Wrapper extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUp(),
-                          ),
-                        );
+                            context,
+                            PageTransition(
+                                duration: Duration(milliseconds: 600),
+                                child: SignUp(),
+                                type: PageTransitionType.rightToLeft));
                       },
                       child: Container(
                         height: 58.h,
@@ -71,10 +71,13 @@ class Wrapper extends StatelessWidget {
                           children: [
                             Text(
                               'Get Started',
-                              style: TextStyle(color: white, fontSize: 16.sp),
+                              style: TextStyle(color: white),
                             ),
                             SizedBox(width: 10.w),
-                            Icon(FeatherIcons.arrowRight, color: white,),
+                            Icon(
+                              FeatherIcons.arrowRight,
+                              color: white,
+                            ),
                           ],
                         ),
                       ),

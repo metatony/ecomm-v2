@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/homepage/components/bottom_bar.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class SignUp extends StatelessWidget {
@@ -88,12 +89,19 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             Button(
-              text: anonymous,
-              color: blue,
-              icon: FeatherIcons.aperture,
-              textColor: white,
-              iconColor: white,
-            ),
+                text: anonymous,
+                color: blue,
+                icon: FeatherIcons.aperture,
+                textColor: white,
+                iconColor: white,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          duration: Duration(milliseconds: 600),
+                          child: BottomBar(),
+                          type: PageTransitionType.rightToLeft));
+                }),
             SizedBox(height: 30.h),
 
             Footer(),

@@ -2,6 +2,7 @@
 
 import 'package:ecommerce_app/productpage/product_page.dart';
 import 'package:ecommerce_app/utils/exports.dart';
+import 'package:ecommerce_app/widgets/skeleton.dart';
 
 class ProductGrid extends StatefulWidget {
   const ProductGrid({
@@ -14,7 +15,7 @@ class ProductGrid extends StatefulWidget {
 
 class _ProductGridState extends State<ProductGrid> {
   List<Product> _products = [];
-  bool _loading = true;
+  bool _loading = false;
 
   @override
   void initState() {
@@ -22,7 +23,11 @@ class _ProductGridState extends State<ProductGrid> {
     _fetchProducts();
   }
 
-  _fetchProducts() async {
+  Future _fetchProducts() async {
+    setState(() {
+      _loading = true;
+    });
+    await Future.delayed(Duration(seconds: 4), () {});
     ProductClass productClass = ProductClass();
     await productClass.fetchProducts();
     _products = productClass.products;
@@ -34,31 +39,33 @@ class _ProductGridState extends State<ProductGrid> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: _loading
-          ? Center(child: CircularProgressIndicator())
-          : GridView.builder(
-              shrinkWrap: true,
-              itemCount: _products.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 5.h,
-                mainAxisExtent: 220.h,
+      child: GridView.builder(
+        shrinkWrap: true,
+        itemCount: _loading ? 8 : _products.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.w,
+          mainAxisSpacing: 5.h,
+          mainAxisExtent: 220.h,
+        ),
+        itemBuilder: (context, int index) {
+          if (_loading) {
+            return Skeleton();
+          } else {
+            return ProductCard(
+              image: _products[index].image,
+              price: _products[index].price,
+              title: _products[index].title,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductPage(),
+                ),
               ),
-              itemBuilder: (context, int index) {
-                return ProductCard(
-                  image: _products[index].image,
-                  price: _products[index].price,
-                  title: _products[index].title,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductPage(),
-                    ),
-                  ),
-                );
-              },
-            ),
+            );
+          }
+        },
+      ),
     );
   }
 }

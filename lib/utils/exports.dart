@@ -17,6 +17,8 @@ export 'package:ecommerce_app/widgets/button.dart';
 export 'package:ecommerce_app/widgets/email_signup_button.dart';
 export 'package:ecommerce_app/auth/signup/footer.dart';
 export 'package:ecommerce_app/models/constants.dart';
+export 'package:ecommerce_app/auth/signup/signup.dart';
+export 'package:shimmer/shimmer.dart';
 
 
 

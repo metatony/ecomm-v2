@@ -26,7 +26,8 @@ class ProductCard extends StatelessWidget {
             SizedBox(height: 8.h),
             Text(
               title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp, ),
+              maxLines: 2,
             ),
             SizedBox(height: 3.h),
             Text(
