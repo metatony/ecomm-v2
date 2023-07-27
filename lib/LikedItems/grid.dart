@@ -11,6 +11,7 @@ class LikedItemsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: double.infinity,
       child: GridView.builder(
         shrinkWrap: true,
         itemCount: provider.likedItems.length,

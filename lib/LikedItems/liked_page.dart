@@ -4,7 +4,9 @@ import 'package:ecommerce_app/LikedItems/grid.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class LikedPage extends StatelessWidget {
-  const LikedPage({super.key});
+  LikedPage({super.key});
+
+  bool cartEmpty = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +30,14 @@ class LikedPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 25.w),
-          children: [
-            LikedItemsGrid(provider: provider),
-          ],
-        ),
+        child: provider.likedItems.isEmpty
+            ? Center(child: Text('You have no liked item'))
+            : ListView(
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                children: [
+                  LikedItemsGrid(provider: provider),
+                ],
+              ),
       ),
     );
   }

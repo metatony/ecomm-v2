@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ecommerce_app/utils/exports.dart';
-import 'package:ecommerce_app/widgets/skeleton.dart';
 
 class ProductGrid extends StatefulWidget {
   const ProductGrid({
@@ -41,6 +40,7 @@ class _ProductGridState extends State<ProductGrid> {
     NotifierState provider = Provider.of<NotifierState>(context, listen: false);
 
     return SizedBox(
+      width: double.infinity,
       child: GridView.builder(
         shrinkWrap: true,
         itemCount: _loading ? 6 : _products.length,
@@ -66,7 +66,6 @@ class _ProductGridState extends State<ProductGrid> {
               ),
               onTapp: () {
                 provider.addLikedProducts(index);
-                //Provider.of(context, listen: false).addLikedProducts();
               },
             );
           }

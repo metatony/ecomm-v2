@@ -22,6 +22,7 @@ export 'package:shimmer/shimmer.dart';
 
 export 'package:ecommerce_app/productpage/product_page.dart';
 export 'package:ecommerce_app/utils/provider.dart';
+export 'package:ecommerce_app/widgets/skeleton.dart';
 
 
 

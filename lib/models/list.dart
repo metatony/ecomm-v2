@@ -11,7 +11,7 @@ List<Map<String, dynamic>> bottomBar = [
   {
     'page': 'Saved',
     'icon': FeatherIcons.heart,
-    'body': const LikedPage(),
+    'body':  LikedPage(),
   },
   {
     'page': 'Cart',
