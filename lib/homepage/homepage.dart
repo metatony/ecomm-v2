@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ecommerce_app/homepage/components/appbar.dart';
-import 'package:ecommerce_app/homepage/components/product_grid.dart';
+import 'package:ecommerce_app/productpage/components/product_grid.dart';
 import 'package:ecommerce_app/homepage/components/search_area.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
           children: [
+            SizedBox(height: 20.h),
             //!appbar
             HomeAppBar(),
             SizedBox(height: 14.h),

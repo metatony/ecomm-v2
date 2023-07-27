@@ -5,12 +5,13 @@ class ProductCard extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    required this.price, this.onTap,
+    required this.price,
+    this.onTap, this.onTapp,
   });
 
   final String image, title;
   final double price;
-  final Function()? onTap;
+  final Function()? onTap, onTapp;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,19 @@ class ProductCard extends StatelessWidget {
             SizedBox(height: 8.h),
             Text(
               title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp, ),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
+              ),
               maxLines: 2,
             ),
             SizedBox(height: 3.h),
-            Text(
-              price.toString(),
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
+            InkWell(
+              onTap: onTapp,
+              child: Text(
+                price.toString(),
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
+              ),
             ),
           ],
         ),

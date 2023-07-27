@@ -89,19 +89,21 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             Button(
-                text: anonymous,
-                color: blue,
-                icon: FeatherIcons.aperture,
-                textColor: white,
-                iconColor: white,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          duration: Duration(milliseconds: 600),
-                          child: BottomBar(),
-                          type: PageTransitionType.rightToLeft));
-                }),
+              text: anonymous,
+              color: blue,
+              icon: FeatherIcons.aperture,
+              textColor: white,
+              iconColor: white,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      duration: Duration(milliseconds: 600),
+                      child: BottomBar(),
+                      type: PageTransitionType.rightToLeft),
+                );
+              },
+            ),
             SizedBox(height: 30.h),
 
             Footer(),

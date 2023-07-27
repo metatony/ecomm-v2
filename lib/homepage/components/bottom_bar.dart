@@ -19,10 +19,11 @@ class _BottomBarState extends State<BottomBar> {
         currentIndex: selectedIndex,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.black,
-        onTap: (int index) {
+        onTap: (int index) async {
           setState(() {
             selectedIndex = index;
-          });
+            
+          });   
         },
         items: List.generate(
           bottomBar.length,

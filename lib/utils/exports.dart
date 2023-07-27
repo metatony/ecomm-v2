@@ -20,6 +20,9 @@ export 'package:ecommerce_app/models/constants.dart';
 export 'package:ecommerce_app/auth/signup/signup.dart';
 export 'package:shimmer/shimmer.dart';
 
+export 'package:ecommerce_app/productpage/product_page.dart';
+export 'package:ecommerce_app/utils/provider.dart';
+
 
 
 

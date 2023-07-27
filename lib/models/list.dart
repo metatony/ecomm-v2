@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/LikedItems/liked_page.dart';
 import 'package:ecommerce_app/homepage/homepage.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
@@ -10,7 +11,7 @@ List<Map<String, dynamic>> bottomBar = [
   {
     'page': 'Saved',
     'icon': FeatherIcons.heart,
-    //'body': const HomePage(),
+    'body': const LikedPage(),
   },
   {
     'page': 'Cart',
