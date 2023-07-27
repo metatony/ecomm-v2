@@ -37,7 +37,7 @@ class ProductCard extends StatelessWidget {
             InkWell(
               onTap: onTapp,
               child: Text(
-                price.toString(),
+               '\$' + price.toString(),
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
               ),
             ),

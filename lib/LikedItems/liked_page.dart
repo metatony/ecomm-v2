@@ -4,9 +4,7 @@ import 'package:ecommerce_app/LikedItems/grid.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class LikedPage extends StatelessWidget {
-  LikedPage({super.key});
-
-  bool cartEmpty = true;
+  const LikedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +33,7 @@ class LikedPage extends StatelessWidget {
             : ListView(
                 padding: EdgeInsets.symmetric(horizontal: 25.w),
                 children: [
+                  SizedBox(height: 20.h),
                   LikedItemsGrid(provider: provider),
                 ],
               ),

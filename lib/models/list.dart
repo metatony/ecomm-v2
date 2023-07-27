@@ -18,11 +18,6 @@ List<Map<String, dynamic>> bottomBar = [
     'icon': FeatherIcons.shoppingCart,
     //'body': const HomePage(),
   },
-  {
-    'page': 'Settings',
-    'icon': FeatherIcons.settings,
-    // 'body': const HomePage(),
-  }
 ];
 
 List productSize = ['S', 'M', 'L'];

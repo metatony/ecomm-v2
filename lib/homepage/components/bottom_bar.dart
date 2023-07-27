@@ -15,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       body: bottomBar[selectedIndex]['body'],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
         currentIndex: selectedIndex,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.black,
