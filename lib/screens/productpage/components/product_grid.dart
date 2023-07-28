@@ -25,7 +25,7 @@ class _ProductGridState extends State<ProductGrid> {
     setState(() {
       _loading = true;
     });
-    await Future.delayed(Duration(seconds: 4), () {});
+    await Future.delayed(Duration(seconds: 2), () {});
     NotifierState provider = NotifierState();
 
     await provider.fetchProducts();

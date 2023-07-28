@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/LikedItems/liked_page.dart';
-import 'package:ecommerce_app/homepage/homepage.dart';
+import 'package:ecommerce_app/screens/LikedItems/liked_page.dart';
+import 'package:ecommerce_app/screens/homepage/homepage.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 List<Map<String, dynamic>> bottomBar = [

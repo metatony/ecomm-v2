@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/extension.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class SignUpButton extends StatelessWidget {
@@ -18,25 +19,20 @@ class SignUpButton extends StatelessWidget {
             child: Container(
               height: 53.h,
               width: 341.w,
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10.r)),
-              child: Center(
-                  child: Text(
+              decoration: BoxDecoration().curvedRadius(10.r, Colors.black),
+              child: Text(
                 'Sign Up',
-                style: TextStyle(color: Colors.white),
-              )),
+                style: TextStyle().textStyling(Colors.white, null, null),
+              ).center(),
             ),
           ),
-          SizedBox(
-            height: 5,
-          ),
+          sizedHeight(),
           SizedBox(
             width: double.infinity,
             height: 25.h,
-            child: Center(child: Text('Or')),
+            child: Text('Or').center(),
           ),
-          SizedBox(height: 5.h),
+          sizedHeight(),
         ],
       ),
     );

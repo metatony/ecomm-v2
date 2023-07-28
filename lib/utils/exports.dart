@@ -7,8 +7,7 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 
 export 'package:ecommerce_app/models/list.dart';
 export 'package:ecommerce_app/widgets/product_card.dart';
-export 'package:ecommerce_app/api/api_model.dart';
-export 'package:ecommerce_app/api/fetch.dart';
+export 'package:ecommerce_app/models/api_model.dart';
 export 'package:ecommerce_app/widgets/size_widget.dart';
 
 export 'package:ecommerce_app/utils/exports.dart';
@@ -20,9 +19,10 @@ export 'package:ecommerce_app/models/constants.dart';
 export 'package:ecommerce_app/auth/signup/signup.dart';
 export 'package:shimmer/shimmer.dart';
 
-export 'package:ecommerce_app/productpage/product_page.dart';
+export 'package:ecommerce_app/screens/productpage/product_page.dart';
 export 'package:ecommerce_app/utils/provider.dart';
 export 'package:ecommerce_app/widgets/skeleton.dart';
+export 'package:ecommerce_app/extension.dart';
 
 
 

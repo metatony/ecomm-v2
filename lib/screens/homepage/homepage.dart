@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/homepage/components/appbar.dart';
-import 'package:ecommerce_app/productpage/components/product_grid.dart';
-import 'package:ecommerce_app/homepage/components/search_area.dart';
+import 'package:ecommerce_app/screens/homepage/components/appbar.dart';
+import 'package:ecommerce_app/screens/productpage/components/product_grid.dart';
+import 'package:ecommerce_app/screens/homepage/components/search_area.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class HomePage extends StatefulWidget {

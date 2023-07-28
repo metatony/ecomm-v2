@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/extension.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class Wrapper extends StatelessWidget {
@@ -63,9 +64,8 @@ class Wrapper extends StatelessWidget {
                       child: Container(
                         height: 58.h,
                         width: 341.w,
-                        decoration: BoxDecoration(
-                            color: black,
-                            borderRadius: BorderRadius.circular(10.r)),
+                        decoration:
+                            BoxDecoration().curvedRadius(10.r, Colors.black),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -92,3 +92,7 @@ class Wrapper extends StatelessWidget {
     );
   }
 }
+//decoration: BoxDecoration(
+  //                          color: black,
+    //                        borderRadius: BorderRadius.circular(10.r),
+      //                      ),

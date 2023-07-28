@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import '../../utils/exports.dart';
+import '../../../utils/exports.dart';
 
 class SearchArea extends StatelessWidget {
   const SearchArea({

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:device_preview/device_preview.dart';
-import 'package:ecommerce_app/wrapper.dart';
+import 'package:ecommerce_app/screens/wrapper.dart';
 import 'utils/exports.dart';
 
 void main() {

@@ -11,23 +11,18 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Center(
-        child: Text.rich(
-          TextSpan(
-            text: 'Already a member?',
-            style: TextStyle(color: Colors.grey),
-            children: const [
-              TextSpan(
-                text: ' Log In',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    decoration: TextDecoration.underline),
-              ),
-            ],
-          ),
+      child: Text.rich(
+        TextSpan(
+          text: 'Already a member?',
+          style: TextStyle(color: Colors.grey),
+          children:  [
+            TextSpan(
+              text: ' Log In',
+              style: TextStyle().textStyling(black, FontWeight.w600, null),
+            ),
+          ],
         ),
-      ),
+      ).center(),
     );
   }
 }

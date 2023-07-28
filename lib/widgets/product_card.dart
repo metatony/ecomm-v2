@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductCard extends StatelessWidget {
@@ -6,7 +8,8 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
-    this.onTap, this.onTapp,
+    this.onTap,
+    this.onTapp,
   });
 
   final String image, title;
@@ -27,18 +30,15 @@ class ProductCard extends StatelessWidget {
             SizedBox(height: 8.h),
             Text(
               title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
-              ),
+              style: TextStyle().textStyling(null, FontWeight.bold, 16.sp),
               maxLines: 2,
             ),
             SizedBox(height: 3.h),
             InkWell(
               onTap: onTapp,
               child: Text(
-               '\$' + price.toString(),
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.sp),
+                '\$' + price.toString(),
+                style: TextStyle().textStyling(null, FontWeight.w500, 12.sp),
               ),
             ),
           ],

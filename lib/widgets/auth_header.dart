@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 
 import 'package:ecommerce_app/utils/exports.dart';
 
@@ -18,9 +19,11 @@ class AuthHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 25.h),
-          Text(title, style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600)),
+          Text(title,
+              style: TextStyle().textStyling(null, FontWeight.w600, 24.sp)),
           SizedBox(height: 5.h),
-          Text(subTitle, style: TextStyle(fontSize:12.sp, fontWeight: FontWeight.w400)),
+          Text(subTitle,
+              style: TextStyle().textStyling(null, FontWeight.w400, 12.sp)),
           SizedBox(height: 25.h),
         ],
       ),
