@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/screens/LikedItems/grid.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class LikedPage extends StatelessWidget {

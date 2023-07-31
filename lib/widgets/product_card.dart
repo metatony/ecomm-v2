@@ -9,10 +9,10 @@ class ProductCard extends StatelessWidget {
     required this.title,
     required this.price,
     this.onTap,
-    this.onTapp,
+    this.onTapp, required this.description,
   });
 
-  final String image, title;
+  final String image, title, description;
   final num price;
   final Function()? onTap, onTapp;
 

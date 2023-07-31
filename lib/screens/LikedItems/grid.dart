@@ -26,10 +26,15 @@ class LikedItemsGrid extends StatelessWidget {
             image: provider.likedItems[index].image,
             price: provider.likedItems[index].price,
             title: provider.likedItems[index].title,
+            description: provider.likedItems[index].description,
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ProductPage(),
+                builder: (context) => ProductPage(
+                  description: provider.likedItems[index].description,
+                  image: provider.likedItems[index].image,
+                  title: provider.likedItems[index].title,
+                ),
               ),
             ),
           );

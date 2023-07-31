@@ -27,6 +27,9 @@ export 'package:ecommerce_app/extension.dart';
 export 'package:ecommerce_app/screens/homepage/components/appbar.dart';
 export 'package:ecommerce_app/screens/productpage/components/product_grid.dart';
 export 'package:ecommerce_app/screens/homepage/components/search_area.dart';
-
+export 'package:ecommerce_app/screens/LikedItems/grid.dart';
+export 'package:ecommerce_app/screens/productpage/components/addtocart.dart';
+export 'package:ecommerce_app/screens/productpage/components/details.dart';
+export 'package:ecommerce_app/screens/productpage/components/product_size.dart';
 
 
