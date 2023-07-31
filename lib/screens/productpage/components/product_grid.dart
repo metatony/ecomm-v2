@@ -59,10 +59,14 @@ class _ProductGridState extends State<ProductGrid> {
               image: _products[index].image,
               price: _products[index].price,
               title: _products[index].title,
+              description: _products[index].description,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProductPage(),
+                  builder: (context) => ProductPage(
+                    description: _products[index].description, 
+                    image: _products[index].image,
+                    title: _products[index].title,),
                 ),
               ),
               onTapp: () {

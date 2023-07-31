@@ -1,12 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/screens/productpage/components/addtocart.dart';
-import 'package:ecommerce_app/screens/productpage/components/details.dart';
-import 'package:ecommerce_app/screens/productpage/components/product_size.dart';
+
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+  const ProductPage(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.description});
+
+  final String image, title, description;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +29,13 @@ class ProductPage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
-          children: const [
+          children: [
             //! product image & description
-            ProductDetail(),
+            ProductDetail(
+              description: description,
+              image: image,
+              title: title,
+            ),
 
             //! product size guide
             ProductSize(),

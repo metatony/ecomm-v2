@@ -5,7 +5,12 @@ import 'package:ecommerce_app/utils/exports.dart';
 class ProductDetail extends StatelessWidget {
   const ProductDetail({
     super.key,
+    required this.image,
+    required this.title,
+    required this.description,
   });
+
+  final String image, title, description;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +21,8 @@ class ProductDetail extends StatelessWidget {
           SizedBox(height: 10.h),
           SizedBox(
             height: 368.h,
-            child: Image.asset(
-              'assets/images/image 1.png',
+            child: Image.network(
+              image,
               fit: BoxFit.cover,
             ),
           ),
@@ -27,8 +32,7 @@ class ProductDetail extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                'Regular fit Slogan'.txt(fontSize: 24.sp),
-               
+                title.txt(fontSize: 24.sp, maxLines: 1),
                 SizedBox(height: 5.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +43,7 @@ class ProductDetail extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 15.h),
-                'The name says it all, the right size slightly snugs the body leaving enough room for comfort in the sleeves and waist.'.txt(),
+                description.txt(),
                 SizedBox(height: 15.h),
               ],
             ),
