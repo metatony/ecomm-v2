@@ -27,25 +27,19 @@ class ProductDetail extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Regular fit slogan',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                'Regular fit Slogan'.txt(fontSize: 24.sp),
+               
                 SizedBox(height: 5.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Icon(Icons.star, color: Colors.orange),
                     SizedBox(width: 10.w),
-                    Text('4.5/5 (45 reviews)'),
+                    '4.5/5 (45 reviews)'.txt(),
                   ],
                 ),
                 SizedBox(height: 15.h),
-                Text(
-                    'The name says it all, the right size slightly snugs the body leaving enough room for comfort in the sleeves and waist.'),
+                'The name says it all, the right size slightly snugs the body leaving enough room for comfort in the sleeves and waist.'.txt(),
                 SizedBox(height: 15.h),
               ],
             ),

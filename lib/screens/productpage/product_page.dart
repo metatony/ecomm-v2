@@ -16,13 +16,7 @@ class ProductPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text(
-          'Details',
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w600),
-        ),
+        title: 'Details'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
         actions: [
           Icon(FeatherIcons.bell),
           SizedBox(width: 25.w),

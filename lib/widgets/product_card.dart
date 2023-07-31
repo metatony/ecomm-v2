@@ -13,7 +13,7 @@ class ProductCard extends StatelessWidget {
   });
 
   final String image, title;
-  final double price;
+  final num price;
   final Function()? onTap, onTapp;
 
   @override
@@ -28,18 +28,11 @@ class ProductCard extends StatelessWidget {
           children: [
             Expanded(child: Image.network(image, fit: BoxFit.cover)),
             SizedBox(height: 8.h),
-            Text(
-              title,
-              style: TextStyle().textStyling(null, FontWeight.bold, 16.sp),
-              maxLines: 2,
-            ),
+            title.txt(maxLines: 2),
             SizedBox(height: 3.h),
             InkWell(
               onTap: onTapp,
-              child: Text(
-                '\$' + price.toString(),
-                style: TextStyle().textStyling(null, FontWeight.w500, 12.sp),
-              ),
+              child: '\$$price'.txt(),
             ),
           ],
         ),

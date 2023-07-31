@@ -14,17 +14,13 @@ class AddToCart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Price',
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500)),
+          'Price'.txt(fontSize: 16.sp),
           SizedBox(height: 2.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'PKR1,190',
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
-              ),
+              'PKR1,190'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
 
               //! Add to Cart Button
               GestureDetector(
@@ -32,20 +28,14 @@ class AddToCart extends StatelessWidget {
                 child: Container(
                   height: 55.h,
                   width: 191.w,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
+                  decoration: BoxDecoration().curvedRadius(),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
+                    children: [
                       Icon(FeatherIcons.shoppingCart, color: Colors.white),
                       SizedBox(width: 5.w),
-                      Text(
-                        'Add to Cart',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      'Add to Cart'.txt(color: Colors.white),
                     ],
                   ),
                 ),

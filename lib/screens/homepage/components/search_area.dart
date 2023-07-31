@@ -18,10 +18,7 @@ class SearchArea extends StatelessWidget {
           Container(
             width: 259.w,
             height: 53.h,
-            decoration: BoxDecoration(
-              color: Color(0xfff2f2f2),
-              borderRadius: BorderRadius.circular(10.r),
-            ),
+            decoration: BoxDecoration().curvedRadius(color: Color(0xfff2f2f2)),
             child: TextField(
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -36,13 +33,9 @@ class SearchArea extends StatelessWidget {
           Container(
             width: 53.w,
             height: 53.h,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(10.r),
-            ),
-            child: Center(
-                child:
-                    Icon(FeatherIcons.filter, size: 20, color: Colors.white)),
+            decoration: BoxDecoration().curvedRadius(color: Colors.black),
+            child: Icon(FeatherIcons.filter, size: 20, color: Colors.white)
+                .center(),
           ),
         ],
       ),

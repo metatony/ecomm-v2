@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/extension.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class SignUpButton extends StatelessWidget {
@@ -17,20 +16,16 @@ class SignUpButton extends StatelessWidget {
           GestureDetector(
             onTap: () {},
             child: Container(
-              height: 53.h,
-              width: 341.w,
-              decoration: BoxDecoration().curvedRadius(10.r, Colors.black),
-              child: Text(
-                'Sign Up',
-                style: TextStyle().textStyling(Colors.white, null, null),
-              ).center(),
-            ),
+                height: 53.h,
+                width: 341.w,
+                decoration: BoxDecoration().curvedRadius(),
+                child: 'Sign Up'.txt(color: Colors.white).center()),
           ),
           sizedHeight(),
           SizedBox(
             width: double.infinity,
             height: 25.h,
-            child: Text('Or').center(),
+            child: 'Or'.txt().center(),
           ),
           sizedHeight(),
         ],

@@ -15,13 +15,8 @@ class LikedPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text(
-          'Liked Products',
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w600),
-        ),
+        title:
+            'Liked Products'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
         actions: [
           Icon(FeatherIcons.bell),
           SizedBox(width: 25.w),
@@ -29,7 +24,7 @@ class LikedPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: provider.likedItems.isEmpty
-            ? Center(child: Text('You have no liked item'))
+            ? 'You have no liked item'.txt().center()
             : ListView(
                 padding: EdgeInsets.symmetric(horizontal: 25.w),
                 children: [

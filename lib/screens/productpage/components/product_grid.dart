@@ -35,6 +35,7 @@ class _ProductGridState extends State<ProductGrid> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     NotifierState provider = Provider.of<NotifierState>(context, listen: false);

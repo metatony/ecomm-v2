@@ -9,7 +9,8 @@ class Button extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.textColor,
-    required this.iconColor, this.onTap,
+    required this.iconColor,
+    this.onTap,
   });
 
   final String text;
@@ -39,10 +40,7 @@ class Button extends StatelessWidget {
               color: iconColor,
             ),
             SizedBox(width: 10.w),
-            Text(
-              text,
-              style: TextStyle(color: textColor),
-            ),
+            text.txt(color: textColor)
           ],
         ),
       ),

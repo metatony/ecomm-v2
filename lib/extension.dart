@@ -11,29 +11,46 @@ extension WidgetHelpers on Widget {
   }
 
   Widget sizedHeight() {
+
     return SizedBox(
       height: 10.h,
     );
   }
 }
 
-// extension for border radius
+// extension for box decoration
 extension CurvedBorder on BoxDecoration {
-  BoxDecoration curvedRadius(double borderRadius, Color color) {
+  BoxDecoration curvedRadius({
+    double? borderRadius,
+    Color? color,
+  }) {
     return BoxDecoration(
-      borderRadius: BorderRadius.circular(borderRadius),
-      color: color,
+      borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
+      color: color ?? Colors.black,
     );
   }
 }
 
 // extension for textstyles
-extension TextStyling on TextStyle {
-  TextStyle textStyling( Color? color, FontWeight? fontWeight, double? fontSize) {
-    return TextStyle(
-      color: color,
-      fontWeight: fontWeight,
-      fontSize: fontSize,
+extension TextExtension on String {
+  Text txt({
+    Color? color,
+    double? fontSize,
+    height,
+    letterSpacing,
+    FontWeight? fontWeight,
+    int? maxLines,
+  }) {
+    return Text(
+      this,
+      maxLines: maxLines,
+      style: TextStyle(
+        color: color ?? Colors.black,
+        fontSize: fontSize ?? 14.sp,
+        fontWeight: fontWeight ?? FontWeight.w400,
+        height: height,
+        letterSpacing: letterSpacing,
+      ),
     );
   }
 }

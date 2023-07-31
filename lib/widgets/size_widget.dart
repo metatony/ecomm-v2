@@ -18,7 +18,7 @@ class SizeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(6.25.r),
         border: Border.all(width: 1.w, color: Colors.grey),
       ),
-      child: Text(size, style: TextStyle(fontSize: 20.sp)).center(),
+      child: size.txt(fontSize: 20.sp).center(),
     );
   }
 }

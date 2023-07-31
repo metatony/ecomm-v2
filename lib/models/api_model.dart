@@ -1,6 +1,6 @@
 class Product {
   final String title, category, description, image;
-  final double price;
+  final num price;
 
   Product({
     required this.title,

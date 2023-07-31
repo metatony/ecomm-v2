@@ -26,8 +26,7 @@ class SignUp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Full name',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                    'Full name'.txt(fontWeight: FontWeight.w600),
                     TextField(
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
@@ -42,8 +41,7 @@ class SignUp extends StatelessWidget {
                     SizedBox(height: 20.h),
 
                     //!email
-                    Text('Email',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                    'Email'.txt(fontWeight: FontWeight.w600),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -58,8 +56,8 @@ class SignUp extends StatelessWidget {
                     SizedBox(height: 20.h),
 
                     //!password
-                    Text('Password',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                    'Password'.txt(fontWeight: FontWeight.w600),
+
                     TextField(
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,

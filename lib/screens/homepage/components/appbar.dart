@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ecommerce_app/utils/exports.dart';
@@ -16,13 +15,7 @@ class HomeAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'Discover',
-            style: TextStyle(
-              fontSize: 32.sp,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          'Discover'.txt(fontSize: 32.sp, fontWeight: FontWeight.w600),
           Icon(FeatherIcons.bell),
         ],
       ),

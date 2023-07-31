@@ -14,10 +14,7 @@ class ProductSize extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Choose size',
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-          ),
+          'Choose size'.txt(fontSize: 20.sp, fontWeight: FontWeight.w600),
           SizedBox(height: 10.h),
           Row(
             children: [
