@@ -34,6 +34,12 @@ class LikedItemsGrid extends StatelessWidget {
                   description: provider.likedItems[index].description,
                   image: provider.likedItems[index].image,
                   title: provider.likedItems[index].title,
+                  currentIndex: index,
+                  onTap: () {
+                    provider.addLikedItemsToCart(index);
+                    //provider.addToCart(index);
+                  },
+                  price: provider.likedItems[index].price,
                 ),
               ),
             ),

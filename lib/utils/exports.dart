@@ -31,5 +31,6 @@ export 'package:ecommerce_app/screens/LikedItems/grid.dart';
 export 'package:ecommerce_app/screens/productpage/components/addtocart.dart';
 export 'package:ecommerce_app/screens/productpage/components/details.dart';
 export 'package:ecommerce_app/screens/productpage/components/product_size.dart';
+export 'package:ecommerce_app/cart/cart_item.dart';
 
 
