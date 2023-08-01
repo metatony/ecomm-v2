@@ -7,6 +7,8 @@ class NotifierState extends ChangeNotifier {
   List<Product> products = [];
   List likedItems = [];
   List cartItems = [];
+  int _counter = 0;
+  int get counter => _counter;
 
   // to maintain one state
   static final NotifierState _instance = NotifierState._internal();
@@ -19,13 +21,34 @@ class NotifierState extends ChangeNotifier {
     notifyListeners();
   }
 
+  // add products to cart page
   void addToCart(int index) {
     cartItems.add(products[index]);
     notifyListeners();
   }
 
+  // add liked products to liked page
   void addLikedItemsToCart(int index) {
     cartItems.add(likedItems[index]);
+    notifyListeners();
+  }
+
+  // delete items from cart
+  void removeItem(int index) {
+    cartItems.removeAt(index);
+    notifyListeners();
+  
+  }
+
+  // increment item
+  void increment() {
+    _counter++;
+    notifyListeners();
+  }
+
+  //decement item
+  void decrement() {
+    _counter--;
     notifyListeners();
   }
 

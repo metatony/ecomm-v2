@@ -8,13 +8,18 @@ class CartItemContainer extends StatelessWidget {
     required this.title,
     required this.image,
     required this.price,
+    required this.onTap,
+    //required this.index,
   });
 
   final String title, image;
   final num price;
+  final Function()? onTap;
+  //final int index;
 
   @override
   Widget build(BuildContext context) {
+    NotifierState provider = Provider.of<NotifierState>(context);
     return Column(
       children: [
         Container(
@@ -39,7 +44,7 @@ class CartItemContainer extends StatelessWidget {
                           child: Image.network(image, fit: BoxFit.cover),
                         ),
                       ),
-                
+
                       //! product description
                       SizedBox(width: 10.w),
                       Expanded(
@@ -48,7 +53,9 @@ class CartItemContainer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(child: title.txt(overflow: TextOverflow.ellipsis)),
+                              Flexible(
+                                  child: title.txt(
+                                      overflow: TextOverflow.ellipsis)),
                               'Size L'.txt(),
                               sizedHeight(),
                               '\$$price'.toString().txt(),
@@ -68,39 +75,57 @@ class CartItemContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: onTap,
                       child: ImageIcon(
                         AssetImage('assets/images/trash-03.png'),
                         color: Colors.red,
                       ),
                     ),
+
+                    //! cart counter
                     SizedBox(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: 23.h,
-                            width: 23.w,
-                            decoration: BoxDecoration(
-                                    border:
-                                        Border.all(width: 2.0, color: Colors.black))
-                                .curvedRadius(
-                              borderRadius: 2.r,
-                              color: Colors.transparent,
+                          //! decrement
+                          InkWell(
+                            onTap: () {
+                              provider.decrement();
+                            },
+                            child: Container(
+                              height: 23.h,
+                              width: 23.w,
+                              decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2.0, color: Colors.black))
+                                  .curvedRadius(
+                                borderRadius: 2.r,
+                                color: Colors.transparent,
+                              ),
+                              child: Icon(FeatherIcons.minus),
                             ),
-                            child: Icon(FeatherIcons.minus),
                           ),
                           SizedBox(
-                              height: 23.h, width: 23.h, child: '1'.txt().center()),
-                          Container(
-                            height: 23.h,
-                            width: 23.w,
-                            decoration: BoxDecoration().curvedRadius(
-                              borderRadius: 2.r,
-                              color: Colors.transparent,
+                              height: 23.h,
+                              width: 23.h,
+                              child:
+                                  provider.counter.toString().txt().center()),
+
+                          //! increment
+                          InkWell(
+                            onTap: () {
+                              provider.increment();
+                            },
+                            child: Container(
+                              height: 23.h,
+                              width: 23.w,
+                              decoration: BoxDecoration().curvedRadius(
+                                borderRadius: 2.r,
+                                color: Colors.transparent,
+                              ),
+                              child: Icon(FeatherIcons.plus),
                             ),
-                            child: Icon(FeatherIcons.plus),
                           ),
                         ],
                       ),

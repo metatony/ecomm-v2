@@ -9,7 +9,8 @@ class ProductPage extends StatelessWidget {
     required this.title,
     required this.description,
     required this.currentIndex,
-     this.onTap, required this.price,
+    this.onTap,
+    required this.price,
   });
 
   final String image, title, description;
@@ -48,7 +49,8 @@ class ProductPage extends StatelessWidget {
             //! price & add to cart
             AddToCart(
               currentIndex: currentIndex,
-              price: price, onTap: onTap,
+              price: price,
+              onTap: onTap,
             )
           ],
         ),

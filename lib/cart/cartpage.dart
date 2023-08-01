@@ -7,7 +7,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotifierState provider = Provider.of<NotifierState>(context, listen: false);
+    NotifierState provider = Provider.of<NotifierState>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -28,28 +28,33 @@ class CartPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: provider.cartItems.isEmpty
-              ? 'Your cart is empty'.txt().center()
-              : ListView(
-                  padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  children: [
-                    SizedBox(height: 15.h),
+        child: provider.cartItems.isEmpty
+            ? 'Your cart is empty'.txt().center()
+            : ListView(
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                children: [
+                  SizedBox(height: 15.h),
 
-                    //! cart item container
-                    ...List.generate(
-                      provider.cartItems.length,
-                      (index) => CartItemContainer(
-                        image: provider.cartItems[index].image,
-                        price: provider.cartItems[index].price,
-                        title: provider.cartItems[index].title,
-                      ),
+                  //! cart item container
+                  ...List.generate(
+                    provider.cartItems.length,
+                    (index) => CartItemContainer(
+                      image: provider.cartItems[index].image,
+                      price: provider.cartItems[index].price,
+                      title: provider.cartItems[index].title,
+                      onTap: () {
+                        provider.removeItem(index);
+                        //print(provider.cartItems);
+                      },
                     ),
+                  ),
 
-                    // total
+                  // total
 
-                    //! button
-                  ],
-                )),
+                  //! button
+                ],
+              ),
+      ),
     );
   }
 }
