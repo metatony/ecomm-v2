@@ -5,10 +5,17 @@ import 'package:ecommerce_app/utils/exports.dart';
 class AddToCart extends StatelessWidget {
   const AddToCart({
     super.key,
+    required this.price,
+    required this.currentIndex, required this.onTap,
   });
+
+  final num price;
+  final int currentIndex;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
+
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -20,11 +27,13 @@ class AddToCart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              'PKR1,190'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
+              '\$$price'
+                  
+                  .txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
 
               //! Add to Cart Button
               GestureDetector(
-                onTap: () {},
+                onTap: onTap,
                 child: Container(
                   height: 55.h,
                   width: 191.w,

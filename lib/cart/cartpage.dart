@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import '../utils/exports.dart';
 
 class CartPage extends StatelessWidget {
@@ -5,6 +7,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NotifierState provider = Provider.of<NotifierState>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -24,13 +28,28 @@ class CartPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: ListView(
-        children: [
-          SizedBox(height: 15.h),
-          Container(),
+          child: provider.cartItems.isEmpty
+              ? 'Your cart is empty'.txt().center()
+              : ListView(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  children: [
+                    SizedBox(height: 15.h),
 
-        ],
-      )),
+                    //! cart item container
+                    ...List.generate(
+                      provider.cartItems.length,
+                      (index) => CartItemContainer(
+                        image: provider.cartItems[index].image,
+                        price: provider.cartItems[index].price,
+                        title: provider.cartItems[index].title,
+                      ),
+                    ),
+
+                    // total
+
+                    //! button
+                  ],
+                )),
     );
   }
 }

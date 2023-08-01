@@ -11,7 +11,6 @@ extension WidgetHelpers on Widget {
   }
 
   Widget sizedHeight() {
-
     return SizedBox(
       height: 10.h,
     );
@@ -27,6 +26,7 @@ extension CurvedBorder on BoxDecoration {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
       color: color ?? Colors.black,
+     
     );
   }
 }
@@ -40,10 +40,12 @@ extension TextExtension on String {
     letterSpacing,
     FontWeight? fontWeight,
     int? maxLines,
+    TextOverflow? overflow,
   }) {
     return Text(
       this,
       maxLines: maxLines,
+      overflow: overflow,
       style: TextStyle(
         color: color ?? Colors.black,
         fontSize: fontSize ?? 14.sp,

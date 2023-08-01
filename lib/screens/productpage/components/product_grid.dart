@@ -35,7 +35,6 @@ class _ProductGridState extends State<ProductGrid> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     NotifierState provider = Provider.of<NotifierState>(context, listen: false);
@@ -64,9 +63,15 @@ class _ProductGridState extends State<ProductGrid> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ProductPage(
-                    description: _products[index].description, 
+                    description: _products[index].description,
                     image: _products[index].image,
-                    title: _products[index].title,),
+                    title: _products[index].title,
+                    price: _products[index].price,
+                    currentIndex: index,
+                    onTap: () {
+                      provider.addToCart(index);
+                    },
+                  ),
                 ),
               ),
               onTapp: () {

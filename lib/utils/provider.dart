@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'package:ecommerce_app/utils/exports.dart';
 import 'package:http/http.dart' as http;
 
-
-
 class NotifierState extends ChangeNotifier {
   List<Product> products = [];
   List likedItems = [];
+  List cartItems = [];
 
   // to maintain one state
   static final NotifierState _instance = NotifierState._internal();
@@ -17,6 +16,16 @@ class NotifierState extends ChangeNotifier {
   // add products to liked page
   void addLikedProducts(int index) {
     likedItems.add(products[index]);
+    notifyListeners();
+  }
+
+  void addToCart(int index) {
+    cartItems.add(products[index]);
+    notifyListeners();
+  }
+
+  void addLikedItemsToCart(int index) {
+    cartItems.add(likedItems[index]);
     notifyListeners();
   }
 
