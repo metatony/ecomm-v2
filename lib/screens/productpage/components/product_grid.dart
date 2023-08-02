@@ -25,7 +25,7 @@ class _ProductGridState extends State<ProductGrid> {
     setState(() {
       _loading = true;
     });
-    await Future.delayed(Duration(seconds: 2), () {});
+    await Future.delayed(Duration(seconds: 1), () {});
     NotifierState provider = NotifierState();
 
     await provider.fetchProducts();
@@ -73,7 +73,7 @@ class _ProductGridState extends State<ProductGrid> {
 
                       final snackBar = SnackBar(
                         content: 'Item has been added to your cart'.txt(color: white).center(),
-                        duration: Duration(seconds: 2),
+                        duration: Duration(seconds: 1),
                         backgroundColor: black,
                         padding: EdgeInsets.all(20),
                         behavior: SnackBarBehavior.floating,
