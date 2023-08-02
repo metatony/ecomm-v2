@@ -17,7 +17,7 @@ class LikedPage extends StatelessWidget {
         title:
             'Liked Products'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
         actions: [
-          Icon(FeatherIcons.bell),
+          ImageIcon(AssetImage('assets/images/shopping-bag-03.png')),
           SizedBox(width: 25.w),
         ],
       ),

@@ -42,7 +42,7 @@ class AddToCart extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(FeatherIcons.shoppingCart, color: Colors.white),
+                      ImageIcon(AssetImage('assets/images/shopping-bag-03.png'), color: white),
                       SizedBox(width: 5.w),
                       'Add to Cart'.txt(color: Colors.white),
                     ],

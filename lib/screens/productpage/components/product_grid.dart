@@ -70,6 +70,18 @@ class _ProductGridState extends State<ProductGrid> {
                     currentIndex: index,
                     onTap: () {
                       provider.addToCart(index);
+
+                      final snackBar = SnackBar(
+                        content: 'Item has been added to your cart'.txt(color: white).center(),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: black,
+                        padding: EdgeInsets.all(20),
+                        behavior: SnackBarBehavior.floating,
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                      
                     },
                   ),
                 ),
