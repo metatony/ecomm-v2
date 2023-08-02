@@ -30,7 +30,7 @@ class _BottomBarState extends State<BottomBar> {
           (index) => BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.symmetric(vertical: 12.h),
-              child: Icon(
+              child: ImageIcon(
                 bottomBar[index]['icon'],
               ),
             ),

@@ -34,7 +34,7 @@ class SearchArea extends StatelessWidget {
             width: 53.w,
             height: 53.h,
             decoration: BoxDecoration().curvedRadius(color: Colors.black),
-            child: Icon(FeatherIcons.filter, size: 20, color: Colors.white)
+            child: ImageIcon(AssetImage('assets/images/filter-lines.png'), color: white)
                 .center(),
           ),
         ],

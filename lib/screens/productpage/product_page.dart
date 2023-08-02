@@ -21,17 +21,9 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: 'Details'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
-        actions: [
-          Icon(FeatherIcons.bell),
-          SizedBox(width: 25.w),
-        ],
-      ),
+      
+      
+      appBar: MyAppBar(appBar: AppBar(), title: 'Detail'),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.w),

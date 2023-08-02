@@ -15,20 +15,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MyAppBar(appBar: AppBar(), title: 'Discover'),
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 25.w),
+          padding: EdgeInsets.symmetric(horizontal: 25.w),
           child: Column(
             children: [
               SizedBox(height: 20.h),
-              //!appbar
-              HomeAppBar(),
-              SizedBox(height: 14.h),
-        
+
               //! search area
               SearchArea(),
               SizedBox(height: 14.h),
-        
+
               //!products
               Expanded(child: ProductGrid()),
             ],

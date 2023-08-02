@@ -8,14 +8,12 @@ class CartItemContainer extends StatelessWidget {
     required this.title,
     required this.image,
     required this.price,
-    required this.onTap,
-    //required this.index,
+    required this.index,
   });
 
   final String title, image;
   final num price;
-  final Function()? onTap;
-  //final int index;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +73,9 @@ class CartItemContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: onTap,
+                      onTap: (){
+                        provider.removeItem(index);
+                      },
                       child: ImageIcon(
                         AssetImage('assets/images/trash-03.png'),
                         color: Colors.red,

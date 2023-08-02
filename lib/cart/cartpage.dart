@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/widgets/appbar.dart';
+
 import '../utils/exports.dart';
 
 class CartPage extends StatelessWidget {
@@ -10,23 +12,7 @@ class CartPage extends StatelessWidget {
     NotifierState provider = Provider.of<NotifierState>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Text(
-          'My Cart',
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w600),
-        ),
-        actions: [
-          const Icon(FeatherIcons.bell),
-          SizedBox(width: 25.w),
-        ],
-      ),
+      appBar: MyAppBar(appBar: AppBar(), title: 'Cart'),
       body: SafeArea(
         child: provider.cartItems.isEmpty
             ? 'Your cart is empty'.txt().center()
@@ -42,10 +28,8 @@ class CartPage extends StatelessWidget {
                       image: provider.cartItems[index].image,
                       price: provider.cartItems[index].price,
                       title: provider.cartItems[index].title,
-                      onTap: () {
-                        provider.removeItem(index);
-                        //print(provider.cartItems);
-                      },
+                      index: index,
+                  
                     ),
                   ),
 

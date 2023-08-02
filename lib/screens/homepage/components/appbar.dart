@@ -16,7 +16,7 @@ class HomeAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           'Discover'.txt(fontSize: 32.sp, fontWeight: FontWeight.w600),
-          Icon(FeatherIcons.bell),
+          ImageIcon(AssetImage('assets/images/shopping-bag-03.png')),
         ],
       ),
     );
