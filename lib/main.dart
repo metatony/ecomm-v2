@@ -2,7 +2,6 @@
 
 import 'package:device_preview/device_preview.dart';
 import 'package:ecommerce_app/screens/homepage/components/bottom_bar.dart';
-import 'package:ecommerce_app/screens/wrapper.dart';
 import 'utils/exports.dart';
 
 void main() {
