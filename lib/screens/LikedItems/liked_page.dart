@@ -9,18 +9,7 @@ class LikedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     NotifierState provider = Provider.of<NotifierState>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title:
-            'Liked Products'.txt(fontSize: 24.sp, fontWeight: FontWeight.w600),
-        actions: [
-          ImageIcon(AssetImage('assets/images/shopping-bag-03.png')),
-          SizedBox(width: 25.w),
-        ],
-      ),
+      appBar: MyAppBar(appBar: AppBar(), title: 'Liked Products'),
       body: SafeArea(
         child: provider.likedItems.isEmpty
             ? 'You have no liked item'.txt().center()

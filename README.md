@@ -4,13 +4,31 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Fetching data from FakestoreApi
 
-A few resources to get you started if this is your first Flutter project:
+```dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  Future<void> fetchProducts() async {
+    String url = 'https://fakestoreapi.com/products';
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    var response = await http.get(Uri.parse(url));
+    var jsonData = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      for (var eachProduct in jsonData) {
+        final productList = Product(
+          title: eachProduct['title'] ?? 'No data available',
+          price: eachProduct['price'] ?? 'No data available',
+          description: eachProduct['description'] ?? 'No data available',
+          category: eachProduct['category'] ?? 'No data available',
+          image: eachProduct['image'] ?? 'No data available',
+        );
+        products.add(productList);
+        //print(jsonData);
+      }
+    } else {
+      throw Exception('failed to fetch data');
+    }
+  }
+
+```

@@ -33,5 +33,6 @@ export 'package:ecommerce_app/screens/productpage/components/details.dart';
 export 'package:ecommerce_app/screens/productpage/components/product_size.dart';
 export 'package:ecommerce_app/cart/cart_item.dart';
 export 'package:ecommerce_app/widgets/appbar.dart';
+export 'package:ecommerce_app/cart/cartpage.dart';
 
 
