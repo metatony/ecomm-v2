@@ -7,7 +7,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotifierState provider = Provider.of<NotifierState>(context, listen: false);
+    NotifierState provider = Provider.of<NotifierState>(context);
 
     return Scaffold(
       appBar: MyAppBar(appBar: AppBar(), title: 'Cart'),

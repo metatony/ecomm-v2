@@ -25,8 +25,8 @@ class Wrapper extends StatelessWidget {
                         .txt(
                             fontSize: 50.sp,
                             fontWeight: FontWeight.bold,
-                            height: 1.h,
-                            letterSpacing: -3)
+                            height: 1.0.h,
+                            letterSpacing: -3.0)
                         .center(),
                   ),
                 ],
