@@ -23,7 +23,7 @@ class Wrapper extends StatelessWidget {
                     height: 235.h,
                     child: 'Define yourself in your unique way.'
                         .txt(
-                            fontSize: 50.sp,
+                            fontSize: 50.0.sp,
                             fontWeight: FontWeight.bold,
                             height: 1.0.h,
                             letterSpacing: -3.0)
