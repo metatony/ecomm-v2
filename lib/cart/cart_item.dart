@@ -73,7 +73,7 @@ class CartItemContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         provider.removeItem(index);
                       },
                       child: ImageIcon(
@@ -91,7 +91,7 @@ class CartItemContainer extends StatelessWidget {
                           //! decrement
                           InkWell(
                             onTap: () {
-                              provider.decrement();
+                              provider.decrement(index);
                             },
                             child: Container(
                               height: 23.h,
@@ -109,13 +109,15 @@ class CartItemContainer extends StatelessWidget {
                           SizedBox(
                               height: 23.h,
                               width: 23.h,
-                              child:
-                                  provider.counter.toString().txt().center()),
+                              child: provider.cartItems[index].quantity
+                                  .toString()
+                                  .txt()
+                                  .center()),
 
                           //! increment
                           InkWell(
                             onTap: () {
-                              provider.increment();
+                              provider.increment(index);
                             },
                             child: Container(
                               height: 23.h,
