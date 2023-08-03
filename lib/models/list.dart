@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/cart/cartpage.dart';
-import 'package:ecommerce_app/screens/LikedItems/liked_page.dart';
-import 'package:ecommerce_app/screens/homepage/homepage.dart';
+
 import 'package:ecommerce_app/utils/exports.dart';
 
 List<Map<String, dynamic>> bottomBar = [
