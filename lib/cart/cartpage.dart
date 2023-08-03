@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/widgets/appbar.dart';
-
 import '../utils/exports.dart';
 
 class CartPage extends StatelessWidget {
@@ -9,7 +7,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotifierState provider = Provider.of<NotifierState>(context);
+    NotifierState provider = Provider.of<NotifierState>(context, listen: false);
 
     return Scaffold(
       appBar: MyAppBar(appBar: AppBar(), title: 'Cart'),
@@ -29,11 +27,19 @@ class CartPage extends StatelessWidget {
                       price: provider.cartItems[index].price,
                       title: provider.cartItems[index].title,
                       index: index,
-                  
                     ),
                   ),
 
                   // total
+                  SizedBox(height: 30.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      'Total'.txt(),
+                      '\$${provider.calculateTotalPrice()}'
+                          .txt(fontWeight: FontWeight.w700)
+                    ],
+                  )
 
                   //! button
                 ],

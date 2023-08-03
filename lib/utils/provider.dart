@@ -37,7 +37,6 @@ class NotifierState extends ChangeNotifier {
   void removeItem(int index) {
     cartItems.removeAt(index);
     notifyListeners();
-  
   }
 
   // increment item
@@ -52,6 +51,18 @@ class NotifierState extends ChangeNotifier {
     notifyListeners();
   }
 
+  //calculate total price
+  String calculateTotalPrice() {
+    num totalPrice = 0;
+    for (int i = 0; i < cartItems.length; i++) {
+      totalPrice += cartItems[i].price;
+    }
+    notifyListeners();
+    return totalPrice.toString();
+    
+  }
+
+  //API fetch method
   Future<void> fetchProducts() async {
     String url = 'https://fakestoreapi.com/products';
 

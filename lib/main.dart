@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: GoogleFonts.poppins().fontFamily),
-            home: BottomBar(),
+            home: Wrapper(),
           );
         },
       ),
