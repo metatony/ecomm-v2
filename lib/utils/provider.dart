@@ -7,8 +7,6 @@ class NotifierState extends ChangeNotifier {
   List<Product> products = [];
   List likedItems = [];
   List cartItems = [];
-  int _counter = 0;
-  int get counter => _counter;
 
   // to maintain one state
   static final NotifierState _instance = NotifierState._internal();
@@ -40,14 +38,19 @@ class NotifierState extends ChangeNotifier {
   }
 
   // increment item
-  void increment() {
-    _counter++;
+  void increment(int index) {
+    cartItems[index].quantity++;
     notifyListeners();
   }
 
   //decement item
-  void decrement() {
-    _counter--;
+  void decrement(int index) {
+    if (cartItems[index].quantity > 0) {
+      cartItems[index].quantity--;
+    }
+    if (cartItems[index].quantity <= 0) {
+      removeItem(index);
+    }
     notifyListeners();
   }
 
@@ -55,11 +58,10 @@ class NotifierState extends ChangeNotifier {
   String calculateTotalPrice() {
     num totalPrice = 0;
     for (int i = 0; i < cartItems.length; i++) {
-      totalPrice += cartItems[i].price;
+      totalPrice += cartItems[i].price * cartItems[i].quantity;
     }
     notifyListeners();
-    return totalPrice.toString();
-    
+    return totalPrice.toInt() .toString();
   }
 
   //API fetch method
