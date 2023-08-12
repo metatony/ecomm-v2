@@ -1,11 +1,11 @@
 # ecommerce_app
 
-A new Flutter project.
-
-## Getting Started
-
+How to run the app
+```
+flutter pub get
+flutter run
+```
 Fetching data from FakestoreApi
-
 ```dart
 
   Future<void> fetchProducts() async {
