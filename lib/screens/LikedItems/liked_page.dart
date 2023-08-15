@@ -9,7 +9,7 @@ class LikedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     NotifierState provider = Provider.of<NotifierState>(context, listen: false);
     return Scaffold(
-      appBar: MyAppBar(appBar: AppBar(), title: 'Liked Products'),
+      appBar: MyAppBar(appBar: AppBar(), title: 'Liked Products', backarrow: false),
       body: SafeArea(
         child: provider.likedItems.isEmpty
             ? 'You have no liked item'.txt().center()

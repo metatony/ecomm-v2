@@ -23,7 +23,7 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       
       
-      appBar: MyAppBar(appBar: AppBar(), title: 'Detail'),
+      appBar: MyAppBar(appBar: AppBar(), title: 'Detail', backarrow: true,),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
