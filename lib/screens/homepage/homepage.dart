@@ -15,7 +15,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(appBar: AppBar(), title: 'Discover'),
+      appBar: MyAppBar(
+        appBar: AppBar(),
+        title: 'Discover',
+        backarrow: false,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w),

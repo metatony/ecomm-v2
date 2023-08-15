@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/extension.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class Wrapper extends StatelessWidget {
@@ -8,6 +7,10 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // stream provider instance
+    final streamProvider = Provider.of<UserModel?>(context);
+    print(streamProvider);
+
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -51,11 +54,15 @@ class Wrapper extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          PageTransition(
-                              duration: Duration(milliseconds: 600),
-                              child: SignUp(),
-                              type: PageTransitionType.rightToLeft));
+                        context,
+                        PageTransition(
+                          duration: Duration(milliseconds: 600),
+                          // condition to give a user access to homepage
+                          child:
+                              streamProvider == null ? SignUp() : BottomBar(),
+                          type: PageTransitionType.rightToLeft,
+                        ),
+                      );
                     },
                     child: Container(
                       height: 58.h,

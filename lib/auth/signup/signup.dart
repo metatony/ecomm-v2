@@ -1,10 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommerce_app/screens/homepage/components/bottom_bar.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
-class SignUp extends StatelessWidget {
+TextEditingController nameSignUp = TextEditingController();
+TextEditingController passwordSignUp = TextEditingController();
+TextEditingController emailSignUp = TextEditingController();
+
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  //create an instance of the authentication class
+  final authenticate = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +35,14 @@ class SignUp extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Form(
+                key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // name textfield
                     'Full name'.txt(fontWeight: FontWeight.w600),
-                    TextField(
+                    TextFormField(
+                      controller: nameSignUp,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         enabledBorder: formBorder,
@@ -37,12 +52,15 @@ class SignUp extends StatelessWidget {
                         hintStyle:
                             TextStyle(color: Colors.grey, fontSize: 12.sp),
                       ),
+                      validator: (value) =>
+                          value!.isEmpty ? 'enter your name' : null,
                     ),
                     SizedBox(height: 20.h),
 
                     //!email
                     'Email'.txt(fontWeight: FontWeight.w600),
-                    TextField(
+                    TextFormField(
+                      controller: emailSignUp,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         enabledBorder: formBorder,
@@ -52,13 +70,16 @@ class SignUp extends StatelessWidget {
                         hintStyle:
                             TextStyle(color: Colors.grey, fontSize: 12.sp),
                       ),
+                      validator: (value) =>
+                          value!.isEmpty ? 'enter your email' : null,
                     ),
                     SizedBox(height: 20.h),
 
                     //!password
                     'Password'.txt(fontWeight: FontWeight.w600),
 
-                    TextField(
+                    TextFormField(
+                      controller: passwordSignUp,
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -69,15 +90,27 @@ class SignUp extends StatelessWidget {
                         hintStyle:
                             TextStyle(color: Colors.grey, fontSize: 12.sp),
                       ),
+                      validator: (value) =>
+                          value!.length < 6 ? 'enter a password 6+ long' : null,
                     ),
                     SizedBox(height: 25.h),
+                    SignUpButton(
+                      text: 'Sign Up',
+                      ontap: () async {
+                        if (_formKey.currentState!.validate()) {
+                          print(nameSignUp);
+                          print(passwordSignUp);
+                          print(emailSignUp);
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
             ),
 
             //! signup buttons
-            SignUpButton(),
+
             Button(
               text: google,
               color: white,
@@ -92,7 +125,13 @@ class SignUp extends StatelessWidget {
               icon: FeatherIcons.aperture,
               textColor: white,
               iconColor: white,
-              onTap: () {
+              onTap: () async {
+                // store the result in a dynamic variaable since it will be either a user or null
+                dynamic result = await authenticate.signInAnon();
+                result == null
+                    ? print('error signing in')
+                    : print('signed in : ${result.uid}');
+
                 Navigator.push(
                   context,
                   PageTransition(
@@ -104,7 +143,20 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 30.h),
 
-            Footer(),
+            // navigate to sign in page
+            Footer(
+              text: 'Log In',
+              ontap: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      duration: Duration(milliseconds: 600),
+                      child: SignIn(),
+                      type: PageTransitionType.rightToLeft),
+                );
+              },
+              questionText: 'Already a member?',
+            ),
           ],
         ),
       ),

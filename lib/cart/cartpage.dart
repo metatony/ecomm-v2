@@ -10,7 +10,11 @@ class CartPage extends StatelessWidget {
     NotifierState provider = Provider.of<NotifierState>(context);
 
     return Scaffold(
-      appBar: MyAppBar(appBar: AppBar(), title: 'Cart'),
+      appBar: MyAppBar(
+        appBar: AppBar(),
+        title: 'Cart',
+        backarrow: false,
+      ),
       body: SafeArea(
         child: provider.cartItems.isEmpty
             ? 'Your cart is empty'.txt().center()

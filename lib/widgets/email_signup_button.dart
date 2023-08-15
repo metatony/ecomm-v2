@@ -5,7 +5,11 @@ import 'package:ecommerce_app/utils/exports.dart';
 class SignUpButton extends StatelessWidget {
   const SignUpButton({
     super.key,
+    required this.text, this.ontap,
   });
+
+  final String text;
+  final Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +18,12 @@ class SignUpButton extends StatelessWidget {
       child: Column(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: ontap,
             child: Container(
                 height: 53.h,
                 width: 341.w,
                 decoration: BoxDecoration().curvedRadius(),
-                child: 'Sign Up'.txt(color: Colors.white).center()),
+                child: text.txt(color: Colors.white).center()),
           ),
           sizedHeight(),
           SizedBox(

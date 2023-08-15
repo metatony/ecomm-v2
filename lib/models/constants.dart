@@ -1,7 +1,7 @@
 import '../utils/exports.dart';
 
 const String google = 'Sign Up with Google';
-const String anonymous = 'Anonymous';
+const String anonymous = 'Sign In Anonymous';
 const Color white = Colors.white;
 const Color blue = Colors.blue;
 const Color black = Colors.black;
