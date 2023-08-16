@@ -14,7 +14,10 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final authenticate = AuthService();
+  String error = '';
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     //final authenticate = AuthService();
@@ -72,16 +75,34 @@ class _SignInState extends State<SignIn> {
                             TextStyle(color: Colors.grey, fontSize: 12.sp),
                       ),
                       validator: (value) =>
-                          value!.isEmpty ? 'enter your password' : null,
+                          value!.length < 6 ? 'enter a password 6+ long' : null,
                     ),
                     SizedBox(height: 25.h),
 
                     SignUpButton(
                       text: 'Sign In',
-                      ontap: () {
-                        if (_formKey.currentState!.validate()) {}
+                      ontap: () async {
+                        if (_formKey.currentState!.validate()) {
+                          dynamic result =
+                              await authenticate.signInWithEmailAndPassword(
+                                  emailSignIn.text, passwordSignIn.text);
+                          if (result == null) {
+                            print('error signing in');
+                            setState(() {
+                              error = 'error signing in';
+                            });
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BottomBar()),
+                            );
+                          }
+                        }
                       },
                     ),
+                    error.txt(color: Colors.red).center(),
+                    SizedBox(height: 10.h),
                   ],
                 ),
               ),
@@ -95,21 +116,7 @@ class _SignInState extends State<SignIn> {
               icon: FeatherIcons.aperture,
               textColor: black,
               iconColor: black,
-              onTap: () async {
-                // store the result in a dynamic variaable since it will be either a user or null
-                // dynamic result = await authenticate.signInAnon();
-                // result == null
-                //     ? print('error signing in')
-                //     : print('signed in : ${result.uid}');
-
-                // Navigator.push(
-                //   context,
-                //   PageTransition(
-                //       duration: Duration(milliseconds: 600),
-                //       child: BottomBar(),
-                //       type: PageTransitionType.rightToLeft),
-                // );
-              },
+              onTap: () {},
             ),
             SizedBox(height: 30.h),
 

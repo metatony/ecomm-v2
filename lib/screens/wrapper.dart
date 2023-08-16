@@ -57,9 +57,9 @@ class Wrapper extends StatelessWidget {
                         context,
                         PageTransition(
                           duration: Duration(milliseconds: 600),
-                          // condition to give a user access to homepage
+                          
                           child:
-                              streamProvider == null ? SignUp() : BottomBar(),
+                              streamProvider == null ? SignUp() : BottomBar(),// condition to give a user access to homepage
                           type: PageTransitionType.rightToLeft,
                         ),
                       );

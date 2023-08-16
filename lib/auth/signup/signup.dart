@@ -17,6 +17,7 @@ class _SignUpState extends State<SignUp> {
   //create an instance of the authentication class
   final authenticate = AuthService();
   final _formKey = GlobalKey<FormState>();
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -98,12 +99,28 @@ class _SignUpState extends State<SignUp> {
                       text: 'Sign Up',
                       ontap: () async {
                         if (_formKey.currentState!.validate()) {
-                          print(nameSignUp);
-                          print(passwordSignUp);
-                          print(emailSignUp);
+                          dynamic result =
+                              await authenticate.registerWithEmailAndPassword(
+                                  emailSignUp.text, passwordSignUp.text);
+                          if (result == null) {
+                            print('enter a valid email or password');
+                            setState(() {
+                              error = 'enter a valid email or password';
+                            });
+                          } else {
+                            // Navigate to the SignUp screen after signing out
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignIn()),
+                            );
+                          }
                         }
                       },
                     ),
+                    SizedBox(height: 10.h),
+
+                    error.txt(color: Colors.red).center(),
+                    SizedBox(height: 10.h),
                   ],
                 ),
               ),
@@ -150,9 +167,10 @@ class _SignUpState extends State<SignUp> {
                 Navigator.push(
                   context,
                   PageTransition(
-                      duration: Duration(milliseconds: 600),
-                      child: SignIn(),
-                      type: PageTransitionType.rightToLeft),
+                    duration: Duration(milliseconds: 600),
+                    child: SignIn(),
+                    type: PageTransitionType.rightToLeft,
+                  ),
                 );
               },
               questionText: 'Already a member?',
