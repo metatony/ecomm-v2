@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
-import 'package:ecommerce_app/services/auth.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -40,7 +39,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               );
             },
             icon: Icon(FeatherIcons.user),
+            
           ),
+          'logout'.txt().center(),
           SizedBox(width: 25.w),
         ],
         // ),
