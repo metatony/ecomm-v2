@@ -15,7 +15,7 @@ export 'package:ecommerce_app/widgets/auth_header.dart';
 export 'package:ecommerce_app/widgets/button.dart';
 export 'package:ecommerce_app/widgets/email_signup_button.dart';
 export 'package:ecommerce_app/auth/signup/footer.dart';
-export 'package:ecommerce_app/models/constants.dart';
+export 'package:ecommerce_app/shared/constants.dart';
 export 'package:ecommerce_app/auth/signup/signup.dart';
 export 'package:shimmer/shimmer.dart';
 
@@ -41,4 +41,5 @@ export 'package:ecommerce_app/cart/cartpage.dart';
 export 'package:ecommerce_app/screens/LikedItems/liked_page.dart';
 export 'package:ecommerce_app/screens/homepage/homepage.dart';
 export 'package:ecommerce_app/services/auth.dart';
+export 'package:flutter_spinkit/flutter_spinkit.dart';
 

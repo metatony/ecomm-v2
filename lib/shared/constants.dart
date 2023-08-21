@@ -6,7 +6,6 @@ const Color white = Colors.white;
 const Color blue = Colors.blue;
 const Color black = Colors.black;
 
-
 const formBorder = OutlineInputBorder(
   //borderRadius: BorderRadius.circular(10),
   borderSide: BorderSide(
@@ -14,4 +13,10 @@ const formBorder = OutlineInputBorder(
   ),
 );
 
-
+const textInputDecoration = InputDecoration(
+  enabledBorder: formBorder,
+  contentPadding: EdgeInsets.all(15),
+  prefixIconColor: Colors.black,
+  //hintText: 'Enter your email address',
+  hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+);

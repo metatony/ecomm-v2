@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 class ProductGrid extends StatefulWidget {
@@ -12,7 +13,7 @@ class ProductGrid extends StatefulWidget {
 }
 
 class _ProductGridState extends State<ProductGrid> {
-  List<Product> _products = [];
+  // List<Product> _products = [];
   bool _loading = false;
 
   @override
@@ -29,7 +30,7 @@ class _ProductGridState extends State<ProductGrid> {
     NotifierState provider = NotifierState();
 
     await provider.fetchProducts();
-    _products = provider.products;
+    //_products = provider.products;
     setState(() {
       _loading = false;
     });
@@ -41,56 +42,70 @@ class _ProductGridState extends State<ProductGrid> {
 
     return SizedBox(
       width: double.infinity,
-      child: GridView.builder(
-        shrinkWrap: true,
-        itemCount: _loading ? 6 : _products.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10.w,
-          mainAxisSpacing: 5.h,
-          mainAxisExtent: 220.h,
-        ),
-        itemBuilder: (context, int index) {
-          if (_loading) {
-            return Skeleton();
-          } else {
-            return ProductCard(
-              image: _products[index].image,
-              price: _products[index].price,
-              title: _products[index].title,
-              description: _products[index].description,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProductPage(
-                    description: _products[index].description,
-                    image: _products[index].image,
-                    title: _products[index].title,
-                    price: _products[index].price,
-                    currentIndex: index,
-                    onTap: () {
-                      provider.addToCart(index);
+      child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('products').snapshots(),
+        builder: (context, snapshot) {
+          return !snapshot.hasData
+              ? Center(child: Text('Please wait'))
+              : Center(
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: _loading ? 4 : snapshot.data!.docs.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.w,
+                      mainAxisSpacing: 5.h,
+                      mainAxisExtent: 220.h,
+                    ),
+                    itemBuilder: (context, int index) {
+                      DocumentSnapshot products = snapshot.data!.docs[index];
+                      if (_loading) {
+                        return Skeleton();
+                      } else {
+                        return ProductCard(
+                          image: products['image'],
+                          price: products['price'],
+                          title: products['title'],
+                          description: products['description'],
+                         // isLiked: provider.likedItems.contains(provider.products[index]),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductPage(
+                                image: products['image'],
+                                price: products['price'],
+                                title: products['title'],
+                                description: products['description'],
+                                currentIndex: index,
+                                onTap: () {
+                                  provider.addToCart(index);
 
-                      final snackBar = SnackBar(
-                        content: 'Item has been added to your cart'.txt(color: white).center(),
-                        duration: Duration(seconds: 1),
-                        backgroundColor: black,
-                        padding: EdgeInsets.all(20),
-                        behavior: SnackBarBehavior.floating,
-                      );
+                                  final snackBar = SnackBar(
+                                    content: 'Item has been added to your cart'
+                                        .txt(color: white)
+                                        .center(),
+                                    duration: Duration(seconds: 1),
+                                    backgroundColor: black,
+                                    padding: EdgeInsets.all(20),
+                                    behavior: SnackBarBehavior.floating,
+                                  );
 
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
+                              ),
+                            ),
+                          ),
+                          onTapp: () {
+                            
+                            provider.addLikedProducts(index);
 
-                      
+                          }, index: index,
+                        );
+                      }
                     },
                   ),
-                ),
-              ),
-              onTapp: () {
-                provider.addLikedProducts(index);
-              },
-            );
-          }
+                );
         },
       ),
     );

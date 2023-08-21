@@ -23,6 +23,7 @@ class LikedItemsGrid extends StatelessWidget {
         ),
         itemBuilder: (context, int index) {
           return ProductCard(
+            
             image: provider.likedItems[index].image,
             price: provider.likedItems[index].price,
             title: provider.likedItems[index].title,
@@ -37,12 +38,11 @@ class LikedItemsGrid extends StatelessWidget {
                   currentIndex: index,
                   onTap: () {
                     provider.addLikedItemsToCart(index);
-                    //provider.addToCart(index);
                   },
                   price: provider.likedItems[index].price,
                 ),
               ),
-            ),
+            ), index: index, 
           );
         },
       ),

@@ -7,14 +7,12 @@ class Button extends StatelessWidget {
     super.key,
     required this.text,
     required this.color,
-    required this.icon,
     required this.textColor,
     required this.iconColor,
     this.onTap,
   });
 
   final String text;
-  final IconData icon;
   final Color color, iconColor, textColor;
   final Function()? onTap;
 
@@ -35,10 +33,10 @@ class Button extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              color: iconColor,
-            ),
+            // Icon(
+            //   icon,
+            //   color: iconColor,
+            // ),
             SizedBox(width: 10.w),
             text.txt(color: textColor)
           ],
