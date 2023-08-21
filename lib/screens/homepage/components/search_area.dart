@@ -16,18 +16,28 @@ class SearchArea extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
+            padding: EdgeInsets.all(10.0),
             width: 259.w,
             height: 53.h,
             decoration: BoxDecoration().curvedRadius(color: Color(0xfff2f2f2)),
-            child: TextField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.all(10),
-                prefixIcon: Icon(FeatherIcons.search),
-                prefixIconColor: Colors.black,
-                hintText: 'Search anything',
-                hintStyle: TextStyle(color: Colors.grey),
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                Icon(FeatherIcons.search, size: 18),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(10.0),
+                      //prefixIcon: Icon(FeatherIcons.search),
+                     // prefixIconColor: Colors.black,
+                      hintText: 'Search anything',
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
