@@ -41,7 +41,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: Icon(FeatherIcons.user),
             
           ),
-          'logout'.txt().center(),
+          //'logout'.txt().center(),
           SizedBox(width: 25.w),
         ],
         // ),

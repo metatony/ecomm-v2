@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/shared/loading.dart';
 import 'package:ecommerce_app/utils/exports.dart';
 
 TextEditingController nameSignIn = TextEditingController();
@@ -17,127 +18,113 @@ class _SignInState extends State<SignIn> {
   final authenticate = AuthService();
   String error = '';
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     //final authenticate = AuthService();
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 25.w),
-          children: [
-            //! header
-            AuthHeader(
-              title: 'Sign In',
-              subTitle: 'Let\'s get you into your account',
-            ),
+    return loading
+        ? Loading()
+        : Scaffold(
+            body: SafeArea(
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                children: [
+                  //! header
+                  AuthHeader(
+                    title: 'Sign In',
+                    subTitle: 'Let\'s get you into your account',
+                  ),
 
-            //! form
-            SizedBox(
-              width: double.infinity,
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //!email
-                    'Email'.txt(fontWeight: FontWeight.w600),
+                  //! form
+                  SizedBox(
+                    width: double.infinity,
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //!email
+                          'Email'.txt(fontWeight: FontWeight.w600),
 
-                    TextFormField(
-                      controller: emailSignIn,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        enabledBorder: formBorder,
-                        contentPadding: EdgeInsets.all(15),
-                        prefixIconColor: Colors.black,
-                        hintText: 'Enter your email address',
-                        hintStyle:
-                            TextStyle(color: Colors.grey, fontSize: 12.sp),
+                          TextFormField(
+                            controller: emailSignIn,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: textInputDecoration.copyWith(
+                                hintText: 'Email address'),
+                            validator: (value) =>
+                                value!.isEmpty ? 'enter your email' : null,
+                          ),
+                          SizedBox(height: 20.h),
+
+                          //!password
+                          'Password'.txt(fontWeight: FontWeight.w600),
+
+                          TextFormField(
+                            controller: passwordSignIn,
+                            keyboardType: TextInputType.visiblePassword,
+                            obscureText: true,
+                            decoration: textInputDecoration.copyWith(
+                                hintText: 'Password'),
+                            validator: (value) => value!.length < 6
+                                ? 'enter a password 6+ long'
+                                : null,
+                          ),
+                          SizedBox(height: 25.h),
+
+                          SignUpButton(
+                            text: 'Sign In',
+                            ontap: () async {
+                              if (_formKey.currentState!.validate()) {
+                                setState(() {
+                                  loading = true;
+                                });
+                                dynamic result = await authenticate
+                                    .signInWithEmailAndPassword(
+                                        emailSignIn.text, passwordSignIn.text);
+                                if (result == null) {
+                                  print('error signing in');
+                                  setState(() {
+                                    error = 'error signing in';
+                                    loading = false;
+                                  });
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => BottomBar()),
+                                  );
+                                }
+                              }
+                            },
+                          ),
+                          error.txt(color: Colors.red).center(),
+                          SizedBox(height: 10.h),
+                        ],
                       ),
-                      validator: (value) =>
-                          value!.isEmpty ? 'enter your email' : null,
                     ),
-                    SizedBox(height: 20.h),
+                  ),
 
-                    //!password
-                    'Password'.txt(fontWeight: FontWeight.w600),
+                  //! signup buttons
 
-                    TextFormField(
-                      controller: passwordSignIn,
-                      keyboardType: TextInputType.visiblePassword,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        enabledBorder: formBorder,
-                        contentPadding: EdgeInsets.all(15),
-                        prefixIconColor: Colors.black,
-                        hintText: 'Enter your password',
-                        hintStyle:
-                            TextStyle(color: Colors.grey, fontSize: 12.sp),
-                      ),
-                      validator: (value) =>
-                          value!.length < 6 ? 'enter a password 6+ long' : null,
-                    ),
-                    SizedBox(height: 25.h),
-
-                    SignUpButton(
-                      text: 'Sign In',
-                      ontap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          dynamic result =
-                              await authenticate.signInWithEmailAndPassword(
-                                  emailSignIn.text, passwordSignIn.text);
-                          if (result == null) {
-                            print('error signing in');
-                            setState(() {
-                              error = 'error signing in';
-                            });
-                          } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BottomBar()),
-                            );
-                          }
-                        }
-                      },
-                    ),
-                    error.txt(color: Colors.red).center(),
-                    SizedBox(height: 10.h),
-                  ],
-                ),
+                  //navigate to sign up page
+                  Footer(
+                    text: ' Sign Up',
+                    questionText: 'Not a member yet?',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          duration: Duration(milliseconds: 600),
+                          child: SignUp(),
+                          type: PageTransitionType.leftToRight,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
-
-            //! signup buttons
-
-            Button(
-              text: 'Sign In with Google',
-              color: white,
-              icon: FeatherIcons.aperture,
-              textColor: black,
-              iconColor: black,
-              onTap: () {},
-            ),
-            SizedBox(height: 30.h),
-
-            //navigate to sign up page
-            Footer(
-              text: 'Sign Up',
-              questionText: 'Not a member yet?',
-              ontap: () {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                    duration: Duration(milliseconds: 600),
-                    child: SignUp(),
-                    type: PageTransitionType.leftToRight,
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-    );
+          );
   }
 }
