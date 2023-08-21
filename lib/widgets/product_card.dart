@@ -33,6 +33,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Expanded(child: Image.network(image, fit: BoxFit.cover)),
             SizedBox(height: 8.h),
+            
             title.txt(maxLines: 2),
             SizedBox(height: 3.h),
             Row(

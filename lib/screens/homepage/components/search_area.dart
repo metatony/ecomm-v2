@@ -29,7 +29,7 @@ class SearchArea extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(10.0),
+                      contentPadding: EdgeInsets.only(bottom: 8, left: 10.0),
                       //prefixIcon: Icon(FeatherIcons.search),
                      // prefixIconColor: Colors.black,
                       hintText: 'Search anything',

@@ -41,6 +41,7 @@ extension TextExtension on String {
     FontWeight? fontWeight,
     int? maxLines,
     TextOverflow? overflow,
+    
   }) {
     return Text(
       this,
@@ -52,6 +53,7 @@ extension TextExtension on String {
         fontWeight: fontWeight ?? FontWeight.w400,
         height: height,
         letterSpacing: letterSpacing,
+        
       ),
     );
   }
