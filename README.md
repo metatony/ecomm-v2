@@ -16,6 +16,7 @@ flutter run
   * [x] Add items to cart
   * [x] Add items to liked page
   * [x] Logout user
+  * [x] Shimmer effect
 
 - #### Picture Preview
 
