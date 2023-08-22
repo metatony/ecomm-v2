@@ -22,5 +22,5 @@ iOS & Android
 
 - #### Picture Preview
 
-| <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/b7e7861c-66b5-4ccf-a6c7-2ab7d7357690" style="max-width: 50%"> | <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/232b4bb3-2b71-49b9-98ad-3bc048fb84d3" style="max-width: 50%"> | <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/db3d75d9-67e7-4e4b-b4cf-59f89244373c" style="max-width: 50%"> |
+| <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/58183958-032a-4d43-b4f2-c4bd4aa628af" style="max-width: 50%"> | <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/c9d98c41-bf74-4bb0-8b25-2da72d9d3d22" style="max-width: 50%"> | <img src= "https://github.com/metatony/ecomm-v2/assets/98693285/55a4fd0e-aadb-43ec-94b5-ab1c7406f8ef" style="max-width: 50%"> |
 | -------------------------------------------- | ---------------------------------- | ---------------------------------- |
