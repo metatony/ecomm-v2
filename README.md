@@ -10,9 +10,6 @@ flutter run
 
 ## Features
 
-```
-iOS & Android
-```
   * [x] Sign in with email & password
   * [x] Anonymous Sign in
   * [x] Firebase Storage
